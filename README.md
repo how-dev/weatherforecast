@@ -10,11 +10,17 @@ arquitetura limpa, ddd e arquitetura hexagonal. A grande ideia é
 que você seja capaz de rodar qualquer parte do código em qualquer
 interface que você queira: seja num terminal, webserver, etc.
 
+<img src="https://github.com/how-dev/weatherforecast/assets/75768068/0f3852ae-6474-495f-bdfb-8482fffe8f46" width=300/>
+
+
 Os princípios dizem para separar as camadas em repositórios
 separados, mas devido a simplicidade do projeto, eu preferi
 separar em módulos. Quando não há a separação em repositórios,
 o isolamento das camadas não fica tão evidente, mas ainda assim
 é possível ver que as camadas estão bem separadas.
+
+<img src="https://github.com/how-dev/weatherforecast/assets/75768068/4b80f852-d0a5-4050-8864-e5194f78a481" width=300/>
+
 
 ### Basic
 
@@ -84,6 +90,19 @@ OPEN_WEATHER_API_URL=https://api.openweathermap.org/data/3.0/onecall
 5. Na raiz do projeto, eu deixei um arquivo chamado `howard_request_collection.json`, que
 é um arquivo de importação para o Insomnia. Caso você queira testar a api, basta
 importar esse arquivo no Insomnia e testar as rotas.
+
+### Rotas:
+
+POST - `/weather-forecast` consultar na api do OpenWeather a previsão do tempo dos próximos
+5 dias. Se já tiver consultado hoje, não fará uma nova consulta. Persiste no banco os dados 
+retornados.
+
+GET - `/weather-forecast` retorna todos os dias que já consultou e que foram persistidos no
+banco de dados.
+
+GET - `weather-forecast/{entity_id}` retorna uma pesquisa específica
+
+DELETE - `weather-forecast/{entity_id}` deleta uma pesquisa específica
 
 ### Úteis, caso queira rodar algo no console
 
